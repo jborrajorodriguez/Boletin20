@@ -28,7 +28,7 @@ public class Libreria {
      * unos valores al ArrayList.
      */
     public void librosPorDefecto() {
-//        libreria.add(new Libro("Marca","Jose",1.5F,100));
+        libreria.add(new Libro("Marca","Jose",1.5F,100));
 //        libreria.add(new Libro("AS","Antonio",2.5F,160));
 //        libreria.add(new Libro("EL Pais","PEPE",1.5F,20));
         fich=new File("Libreria.txt");
@@ -44,7 +44,9 @@ public class Libreria {
                 libreria.add(a);
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("Erro1"+ex.getMessage());
+            System.out.println("Erro1 Non se atopa o ficheiro");
+        }catch(NullPointerException ex){
+            System.out.println("No se puede leer de un fichero vacio");
         }
         sc.close();
 
@@ -62,8 +64,9 @@ public class Libreria {
             }
             escribir.close();
         } catch (IOException ex) {
-            System.out.println("Error 1");;
-        }
+            System.out.println("Error 1 ");
+        }catch(NullPointerException ex){
+            System.out.println("No se puede leer de un fichero vacio");}
     }
 
     /**
