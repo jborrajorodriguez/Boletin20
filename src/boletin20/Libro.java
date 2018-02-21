@@ -48,6 +48,11 @@ public class Libro {
     public void setUnidades(int unidades) {
         this.unidades=unidades;
     }
+
+    @Override
+    public String toString() {
+        return ("Titulo = "+nombre+" "+"Autor : "+autor+" Precio : "+precio+" Unidades : "+unidades);
+    }
     
     
 
