@@ -1,7 +1,13 @@
 package boletin20;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -9,6 +15,9 @@ import javax.swing.JOptionPane;
  */
 public class Libreria {
 
+    File fich;
+    FileWriter f1;
+    PrintWriter escribir;
     ArrayList<Libro> libreria=new ArrayList();
     /**
      * Metodo que no recibe ni devuelve nada.
@@ -18,6 +27,18 @@ public class Libreria {
         libreria.add(new Libro("Marca","Jose",1.5F,100));
         libreria.add(new Libro("AS","Antonio",2.5F,160));
         libreria.add(new Libro("EL Pais","PEPE",1.5F,20));
+    }
+    public void escribirFichero(){
+        try {
+            fich=new File("Libreria.txt");
+            escribir=new PrintWriter(new FileWriter(fich,true));
+            for(int i=0;i<libreria.size();i++){
+                escribir.println(libreria.get(i).toString());
+            }
+            escribir.close();
+        } catch (IOException ex) {
+            System.out.println("Error 1");;
+        }
     }
 
     /**
