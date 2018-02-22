@@ -27,10 +27,8 @@ public class Libreria {
      * Metodo que no recibe ni devuelve nada. Este metodo se encarga de añadir
      * unos valores al ArrayList.
      */
-    public void librosPorDefecto() {
-        libreria.add(new Libro("Marca","Jose",1.5F,100));
-//        libreria.add(new Libro("AS","Antonio",2.5F,160));
-//        libreria.add(new Libro("EL Pais","PEPE",1.5F,20));
+    public void archivoAArray() {
+
         fich=new File("Libreria.txt");
         String linea;
         String[] lista=new String[4];
@@ -45,7 +43,7 @@ public class Libreria {
             }
         } catch (FileNotFoundException ex) {
             System.out.println("Erro1 Non se atopa o ficheiro");
-        }catch(NullPointerException ex){
+        } catch (NullPointerException ex) {
             System.out.println("No se puede leer de un fichero vacio");
         }
         sc.close();
@@ -65,8 +63,9 @@ public class Libreria {
             escribir.close();
         } catch (IOException ex) {
             System.out.println("Error 1 ");
-        }catch(NullPointerException ex){
-            System.out.println("No se puede leer de un fichero vacio");}
+        } catch (NullPointerException ex) {
+            System.out.println("No se puede leer de un fichero vacio");
+        }
     }
 
     /**
@@ -85,25 +84,27 @@ public class Libreria {
     }
 
     /**
-     * Es un metodo que recive un ArrayList y no devuelve nada. Este metodo se
+     * Es un metodo que no recive nada y no devuelve nada. Este metodo se
      * encarga de comparar en el Arraylist el titulo introducido con algun
      * titulo existente
      *
      * @param libreria
      */
-    public void consultar(ArrayList<Libro> libreria) {
-        String titulo=JOptionPane.showInputDialog("Introduce el nombre del Libro");
+    public void consultar() {
+        String titulo=JOptionPane.showInputDialog("Introduce el titulo del Libro");
+        int m=0;
         for (int i=0; i<libreria.size(); i++) {
-            if (titulo==libreria.get(i).getNombre()) {
+            if (libreria.get(i).getNombre().equalsIgnoreCase(titulo)) {
                 System.out.println("Su precio es de :"+libreria.get(i).getPrecio());
+                m=1;
             }
-            else {
-                System.out.println("El libro no está en la libreria");
-            }
+            
 
-        }
+        }if(m==0)System.out.println("Este libro no se encuentra");
     }
-
+    /**
+     * Metodo que no recibe ni devuelve nada que se encarga de leer el fichero.
+     */
     public void leerLibreria() {
         String linea;
         String[] lista=new String[4];
@@ -122,4 +123,15 @@ public class Libreria {
         sc.close();
     }
 
+//    public void comprobarFichero() {
+//        if (fich.exists()) {
+//            this.archivoAArray();
+//        }
+//        else {fich.e
+//            fich=new File("Libreria.txt");
+//            
+//
+//        }
+//    }
+   
 }
