@@ -14,7 +14,7 @@ public class Boletin20 {
         a.archivoAArray();
 //       a.comprobarFichero();
         do {
-            m=Integer.parseInt(JOptionPane.showInputDialog("*******Menu******\n1 Engadir libro a la Libreria\n2 Consultar datos por Titulo\n3 Visualizar todos los datos de la Libreria\n4\n5\n0 Salir"));
+            m=Integer.parseInt(JOptionPane.showInputDialog("*******Menu******\n1 Engadir libro a la Libreria\n2 Consultar datos por Titulo\n3 Visualizar todos los datos de la Libreria\n4 Borrar libros con 0 unidades \n5 Modificar el Precio de un Libro\n0 Salir"));
             switch (m) {
 
                 case 1:
@@ -30,9 +30,10 @@ public class Boletin20 {
                 case 3:
                     a.leerLibreria();
                     break;
-                case 4:;
+                case 4:a.borrado0();
                     break;
-                case 5:;
+                    
+                case 5:a.modificarPrecio();
 
                     break;
 
