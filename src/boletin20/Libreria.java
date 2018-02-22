@@ -23,13 +23,13 @@ public class Libreria {
     private PrintWriter escribir;
     ArrayList<Libro> libreria=new ArrayList();
 
-    public Libreria() {
-        try {
-            sc=new Scanner(new File("Libreria.txt"));
-        } catch (FileNotFoundException ex) {
-            System.out.println("No lo encuentra");;
-        }
-    }
+//    public Libreria() {
+//        try {
+//            sc=new Scanner(new File("Libreria.txt"));
+//        } catch (FileNotFoundException ex) {
+//            System.out.println("No lo encuentra");;
+//        }
+//    }
     
 
     /**
@@ -39,6 +39,7 @@ public class Libreria {
     public void archivoAArray() {
 
         fich=new File("Libreria.txt");
+        if(fich.exists()){
         String linea;
         String[] lista=new String[4];
         Libro a=null;
@@ -55,7 +56,11 @@ public class Libreria {
         } catch (NullPointerException ex) {
             System.out.println("No se puede leer de un fichero vacio");
         }
-        sc.close();
+        sc.close();}
+        else{
+            libreria.add(new Libro("Juan","Juan",10,0));
+            this.escribirFichero();
+        }
 
     }
 
