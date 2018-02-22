@@ -98,10 +98,13 @@ public class Libreria {
                 System.out.println("Su precio es de :"+libreria.get(i).getPrecio());
                 m=1;
             }
-            
 
-        }if(m==0)System.out.println("Este libro no se encuentra");
+        }
+        if (m==0) {
+            System.out.println("Este libro no se encuentra");
+        }
     }
+
     /**
      * Metodo que no recibe ni devuelve nada que se encarga de leer el fichero.
      */
@@ -133,5 +136,37 @@ public class Libreria {
 //
 //        }
 //    }
-   
+    /**
+     * Este metodo no recibe ni devuelve nada.Se encarga de borrar de el fichero
+     * los libros que no tengan unidades.
+     */
+    public void borrado0() {
+        for (int i=0; i<libreria.size(); i++) {
+            if (libreria.get(i).getUnidades()==0) {
+                libreria.remove(i);
+            }
+
+        }
+        this.escribirFichero();
+    }
+    /**
+     * Este metodo no recibe nada y devuelve nada.Se encarga de modificar el precio de un libro.
+     */
+    public void modificarPrecio(){
+        String titulo=JOptionPane.showInputDialog("Introduce el titulo del Libro");
+        int m=0;
+        for (int i=0; i<libreria.size(); i++) {
+            if (libreria.get(i).getNombre().equalsIgnoreCase(titulo)) {
+                float nprecio=Float.parseFloat(JOptionPane.showInputDialog("Nuevo precio"));
+                libreria.get(i).setPrecio(nprecio);
+                this.escribirFichero();
+                m=1;
+            }
+
+        }
+        if (m==0) {
+            System.out.println("Este libro no se encuentra");
+        }
+    }
+
 }
