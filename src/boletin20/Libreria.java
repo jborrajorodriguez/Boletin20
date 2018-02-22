@@ -23,6 +23,15 @@ public class Libreria {
     private PrintWriter escribir;
     ArrayList<Libro> libreria=new ArrayList();
 
+    public Libreria() {
+        try {
+            sc=new Scanner(new File("Libreria.txt"));
+        } catch (FileNotFoundException ex) {
+            System.out.println("No lo encuentra");;
+        }
+    }
+    
+
     /**
      * Metodo que no recibe ni devuelve nada. Este metodo se encarga de añadir
      * unos valores al ArrayList.
